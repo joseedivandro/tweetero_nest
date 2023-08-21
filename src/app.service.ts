@@ -24,13 +24,13 @@ export class AppService {
   }
 
   postTweets(tweet: Tweet): void {
-    let checkSignUp: boolean = false;
+    let VerifySignUp: boolean = false;
 
     this.users.forEach((user) => {
-      if (tweet.username === user.username) checkSignUp = true;
+      if (tweet.username === user.username) VerifySignUp = true;
     });
 
-    if (!checkSignUp)
+    if (!VerifySignUp)
       throw new HttpException('UNAUTHORIZED', HttpStatus.UNAUTHORIZED);
 
     this.tweets.push(tweet);
